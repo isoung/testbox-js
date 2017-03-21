@@ -1,0 +1,45 @@
+{
+  "name": "testbox-js",
+  "version": "0.0.0",
+  "description": "An easier way to automate testing",
+  "main": "./dist/index.js",
+  "types": "./src/index.ts",
+  "bin": {
+    "testbox": "dist/bin/testbox.js"
+  },
+  "scripts": {
+    "start": "ts-node src/bin/testbox.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isoung/testbox-js.git"
+  },
+  "keywords": [
+    "easier",
+    "automated",
+    "testing"
+  ],
+  "author": "Isaiah Soung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isoung/testbox-js/issues"
+  },
+  "homepage": "https://github.com/isoung/testbox-js#readme",
+  "devDependencies": {
+    "@types/colors": "1.1.1",
+    "@types/core-js": "0.9.37",
+    "@types/inquirer": "0.0.32",
+    "@types/node": "7.0.8",
+    "@types/yargs": "6.6.0",
+    "core-js": "2.4.1",
+    "ts-node": "3.0.0",
+    "tslint": "4.5.1",
+    "typescript": "2.2.1"
+  },
+  "dependencies": {
+    "colors": "1.1.2",
+    "inquirer": "3.0.6",
+    "yargs": "7.0.2"
+  }
+}

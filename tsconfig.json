@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "outDir": "./../dist",
+        "noEmitOnError": true,
+        "noImplicitAny": true,
+        "experimentalDecorators": true,
+        "noUnusedLocals": true,
+        "strictNullChecks": true,
+        "sourceMap": true,
+        "lib": [
+            "es5",
+            "es2015",
+            "es2015.promise"
+        ]
+    },
+    "include": [
+        "./src/**/*.ts",
+        "./test/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
