@@ -8,8 +8,9 @@
     "testbox": "dist/bin/testbox.js"
   },
   "scripts": {
-    "start": "ts-node src/bin/testbox.ts",
-    "test": ""
+    "scaffold": "ts-node src/bin/testbox.ts --scaffold",
+    "tslint": "tslint -c .tslint.json -t verbose './**/*.ts' -e './node_modules/**/*'",
+    "test": "cd test && mocha --compilers ts:ts-node/register --reporter list ./**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -27,18 +28,25 @@
   },
   "homepage": "https://github.com/isoung/testbox-js#readme",
   "devDependencies": {
+    "@types/chai": "3.4.35",
     "@types/colors": "1.1.1",
     "@types/core-js": "0.9.37",
+    "@types/fs-extra": "2.0.0",
     "@types/inquirer": "0.0.32",
+    "@types/mocha": "2.2.40",
     "@types/node": "7.0.8",
     "@types/yargs": "6.6.0",
+    "chai": "3.5.0",
     "core-js": "2.4.1",
+    "mocha": "3.2.0",
+    "mock-stdin": "0.3.1",
     "ts-node": "3.0.0",
     "tslint": "4.5.1",
     "typescript": "2.2.1"
   },
   "dependencies": {
     "colors": "1.1.2",
+    "fs-extra": "2.1.2",
     "inquirer": "3.0.6",
     "yargs": "7.0.2"
   }

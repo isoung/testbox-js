@@ -1,17 +1,19 @@
+import 'colors';
+
 import { RubyScaffolder } from './ruby';
 
 export interface IScaffoldOptions {
   programmingLanguage: string;
+  projectName: string;
 }
 
 export class Scaffolder {
-  constructor() {
-
-  }
 
   public init(options: IScaffoldOptions) {
+    process.chdir(options.projectName);
     if (options.programmingLanguage === 'ruby') {
-      RubyScaffolder.init(options);
+      const rubyScaffolder = new RubyScaffolder();
+      rubyScaffolder.init();
     }
   }
 }

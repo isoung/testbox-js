@@ -15,6 +15,3 @@ if (args.scaffold) {
   const testBox = new TestBox();
   testBox.init();
 }
-else if (args.emulate) {
-
-}

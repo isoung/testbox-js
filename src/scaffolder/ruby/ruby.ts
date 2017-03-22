@@ -1,19 +1,29 @@
-import * as fs from 'fs';
+import { CLI } from './../../cli';
+import { CucumberGenerator } from './cucumber/cucumberGenerator';
+import { questions } from './questions';
 
-import { IScaffoldOptions } from './../';
+export interface IRubyOptions {
+  framework: string;
+}
 
 export class RubyScaffolder {
-  public static init(options: IScaffoldOptions) {
-    RubyScaffolder.createGemfile();
+  public init() {
+    CLI.ask(questions)
+    .then((answers: IRubyOptions) => {
+      this.evaluateAnswers(answers);
+    })
+    .catch((err) => {
+      console.log(`${err.message}`.red);
+      process.exit(1);
+    });
   }
 
-  private static createGemfile() {
-    fs.writeFile('GEMFILE',
-`source 'https://rubygems.org'
-
-# Specifying required gems
-gem 'cucumber'
-gem 'rake'
-gem 'rubocop'`);
+  private evaluateAnswers(options: IRubyOptions) {
+    switch (options.framework) {
+      case 'cucumber':
+        CucumberGenerator.create(options);
+      default:
+        break;
+    }
   }
 }
