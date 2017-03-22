@@ -1,8 +1,8 @@
 import 'colors';
 import * as fs from 'fs-extra';
 
-import { CLI } from './../cli';
-import { IScaffoldOptions, Scaffolder } from './../scaffolder';
+import { CLI } from './../cli/cli';
+import { IScaffoldOptions, Scaffolder } from './../scaffolder/scaffolder';
 import {
   overrideDirectoryQ,
   programmingLanguageQ,
@@ -33,32 +33,28 @@ export class TestBox {
   }
 
   public askProgrammingLanguage() {
-    return CLI.ask(programmingLanguageQ)
+    return CLI.ask(programmingLanguageQ, 'programmingLanguage')
       .then((answers: IScaffoldOptions) => {
         answers.projectName = this.projectName;
         this.scaffolder.init(answers);
-      })
-      .catch((err) => {
-        console.log(`${err.message}`.red);
-        process.exit(1);
       });
   }
 
   public askProjectName() {
-    return CLI.ask(projectNameQ)
+    return CLI.ask(projectNameQ, 'projectName')
       .then((answer) => {
         try {
           this.projectName = answer.projectName;
           return fs.mkdirSync(answer.projectName);
         }
         catch (err) {
-          return this.overrideProjectDir();
+          return this.askOverrideProjectDir();
         }
       });
   }
 
-  public overrideProjectDir() {
-    return CLI.ask(overrideDirectoryQ)
+  public askOverrideProjectDir() {
+    return CLI.ask(overrideDirectoryQ, 'override')
       .then((a) => {
         if (a.override) {
           fs.removeSync(this.projectName);

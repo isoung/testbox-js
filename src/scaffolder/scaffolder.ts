@@ -1,6 +1,6 @@
 import 'colors';
 
-import { RubyScaffolder } from './ruby';
+import { RubyScaffolder } from './ruby/ruby';
 
 export interface IScaffoldOptions {
   programmingLanguage: string;

@@ -1,6 +1,6 @@
-import { CLI } from './../../cli';
+import { CLI } from './../../cli/cli';
 import { CucumberGenerator } from './cucumber/cucumberGenerator';
-import { questions } from './questions';
+import { frameworkQ } from './questions';
 
 export interface IRubyOptions {
   framework: string;
@@ -8,14 +8,17 @@ export interface IRubyOptions {
 
 export class RubyScaffolder {
   public init() {
-    CLI.ask(questions)
-    .then((answers: IRubyOptions) => {
-      this.evaluateAnswers(answers);
-    })
-    .catch((err) => {
-      console.log(`${err.message}`.red);
-      process.exit(1);
-    });
+    this.askFramework();
+  }
+
+  public askFramework() {
+    return CLI.ask(frameworkQ, 'rubyFramework')
+      .then((answers: IRubyOptions) => {
+        this.evaluateAnswers(answers);
+      })
+      .catch((err) => {
+        throw new Error(err.message);
+      });
   }
 
   private evaluateAnswers(options: IRubyOptions) {
