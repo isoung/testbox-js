@@ -8,6 +8,7 @@
     "testbox": "dist/bin/testbox.js"
   },
   "scripts": {
+    "build": "cd src && tsc",
     "scaffold": "ts-node src/bin/testbox.ts --scaffold",
     "tslint": "tslint -c .tslint.json -t verbose './**/*.ts' -e './node_modules/**/*'",
     "test": "cd test && mocha --compilers ts:ts-node/register --reporter list ./**/*.ts"

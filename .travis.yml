@@ -3,6 +3,6 @@ sudo: false
 node_js:
   - 6.9.4
 script:
-  - npm install
-  - npm run tslint
-  - npm test
+  - yarn install
+  - yarn tslint
+  - yarn test
