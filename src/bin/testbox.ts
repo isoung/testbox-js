@@ -11,7 +11,8 @@ const args = yargs
   .help('help', 'displays help')
   .argv;
 
+const testBox = new TestBox();
+
 if (args.scaffold) {
-  const testBox = new TestBox();
-  testBox.init();
+  testBox.scaffold();
 }

@@ -1,30 +1,16 @@
-import { CLI } from './../../cli/cli';
 import { CucumberGenerator } from './cucumber/cucumberGenerator';
-import { frameworkQ } from './questions';
 
-export interface IRubyOptions {
-  framework: string;
-}
+import { IScaffoldOptions } from './../scaffolder';
 
 export class RubyScaffolder {
-  public init() {
-    this.askFramework();
+  public init(options: IScaffoldOptions) {
+    this.evaluateAnswers(options);
   }
 
-  public askFramework() {
-    return CLI.ask(frameworkQ, 'rubyFramework')
-      .then((answers: IRubyOptions) => {
-        this.evaluateAnswers(answers);
-      })
-      .catch((err) => {
-        throw new Error(err.message);
-      });
-  }
-
-  private evaluateAnswers(options: IRubyOptions) {
-    switch (options.framework) {
+  private evaluateAnswers(options: IScaffoldOptions) {
+    switch (options.framework[0]) {
       case 'cucumber':
-        CucumberGenerator.create(options);
+        CucumberGenerator.generate(options);
       default:
         break;
     }
