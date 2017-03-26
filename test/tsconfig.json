@@ -3,7 +3,6 @@
         "target": "ES5",
         "module": "commonjs",
         "moduleResolution": "node",
-        "outDir": "./../dist",
         "noEmitOnError": true,
         "noImplicitAny": true,
         "experimentalDecorators": true,
@@ -17,8 +16,7 @@
         ]
     },
     "include": [
-        "./src/**/*.ts",
-        "./test/**/*.ts"
+        "./**/*.ts"
     ],
     "exclude": [
         "node_modules"

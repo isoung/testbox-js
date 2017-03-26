@@ -12,12 +12,12 @@
     "object-literal-sort-keys": [false],
     "one-line": [false],
 
-    "max-line-length": [true, 120],
+    "max-line-length": [true, 150],
 
     "align": [true, "parameters", "statements"],
     "arrow-parens": true,
     "class-name": true,
-    "quotemark": [true, "single", "avoid-escape", "jsx-single"],
+    "quotemark": [true, "single", "avoid-escape"],
     "semicolon": [true, "always"],
     "variable-name": [true, "check-format", "allow-pascal-case"],
     "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-module", "check-separator", "check-type", "check-typecast"]

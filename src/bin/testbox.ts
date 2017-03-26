@@ -8,13 +8,16 @@ const args = yargs
     alias: 's',
     describe: 'scaffolds an automation framework'
   })
+  .option('forceUpdate', {
+    alias: 'u',
+    describe: 'forces an update on current list of frameworks available'
+  })
   .help('help', 'displays help')
   .argv;
 
-if (args.scaffold) {
-  const testBox = new TestBox();
-  testBox.init();
-}
-else if (args.emulate) {
+const testBox = new TestBox();
 
+if (args.scaffold) {
+  args.forceUpdate ? testBox.scaffold(true) : testBox.scaffold(false);
+  testBox.initScaffoldCLI();
 }

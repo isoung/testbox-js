@@ -1,5 +1,3 @@
-import { CLI } from './cli';
+import { Scaffolder } from './scaffolder';
 
-export {
-  CLI
-};
+export { Scaffolder };
