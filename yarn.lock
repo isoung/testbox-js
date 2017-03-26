@@ -37,13 +37,13 @@
   version "2.2.40"
   resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-2.2.40.tgz#9811dd800ece544cd84b5b859917bf584a150c4c"
 
-"@types/mock-require@^1.3.3":
+"@types/mock-require@1.3.3":
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/@types/mock-require/-/mock-require-1.3.3.tgz#cf182eea5779c4d042af668cc897d0530df979c6"
   dependencies:
     "@types/node" "*"
 
-"@types/nock@^8.2.1":
+"@types/nock@8.2.1":
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/@types/nock/-/nock-8.2.1.tgz#1fbe5bdecb943c109a778553fa4d2401cb9394b4"
   dependencies:
@@ -53,7 +53,11 @@
   version "7.0.8"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.8.tgz#25e4dd804b630c916ae671233e6d71f6ce18124a"
 
-"@types/request@^0.0.42":
+"@types/object-hash@^0.5.28":
+  version "0.5.28"
+  resolved "https://registry.yarnpkg.com/@types/object-hash/-/object-hash-0.5.28.tgz#80bc30f9ce9dae6bf2beac15aacf4f5ef131cdc1"
+
+"@types/request@0.0.42":
   version "0.0.42"
   resolved "https://registry.yarnpkg.com/@types/request/-/request-0.0.42.tgz#e47a53bf0b130464854fb693297746a0c0479c31"
   dependencies:
@@ -232,6 +236,10 @@ bcrypt-pbkdf@^1.0.0:
   resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1.tgz#63bc5dcb61331b92bc05fd528953c33462a06f8d"
   dependencies:
     tweetnacl "^0.14.3"
+
+bluebird@3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.3.3.tgz#cf96a45d77b9a97a43c46a365c4619f62bf976d0"
 
 boom@2.x.x:
   version "2.10.1"
@@ -442,6 +450,14 @@ dot-prop@^4.1.0:
   dependencies:
     is-obj "^1.0.0"
 
+dts-generator@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/dts-generator/-/dts-generator-2.1.0.tgz#039b87a4f5f847b3b8ef00ddee3eb09545decefe"
+  dependencies:
+    bluebird "3.3.3"
+    glob "7.0.0"
+    mkdirp "0.5.1"
+
 duplexer3@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
@@ -546,6 +562,16 @@ getpass@^0.1.1:
   resolved "https://registry.yarnpkg.com/getpass/-/getpass-0.1.6.tgz#283ffd9fc1256840875311c1b60e8c40187110e6"
   dependencies:
     assert-plus "^1.0.0"
+
+glob@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.0.0.tgz#3b20a357fffcf46bb384aed6f8ae9a647fdb6ac4"
+  dependencies:
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "2 || 3"
+    once "^1.3.0"
+    path-is-absolute "^1.0.0"
 
 glob@7.0.5:
   version "7.0.5"
@@ -947,7 +973,7 @@ mocha@3.2.0:
     mkdirp "0.5.1"
     supports-color "3.1.2"
 
-mock-require@^2.0.1:
+mock-require@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/mock-require/-/mock-require-2.0.1.tgz#7b0ebc79b8af5dfb1e9caefeb977804e71d2e004"
   dependencies:
@@ -965,7 +991,7 @@ mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
-nock@^9.0.9:
+nock@9.0.9:
   version "9.0.9"
   resolved "https://registry.yarnpkg.com/nock/-/nock-9.0.9.tgz#ca4cd923352e206ae3c7d6595cfd7fb223299ec0"
   dependencies:
@@ -1004,6 +1030,10 @@ oauth-sign@~0.8.1:
 object-assign@^4.0.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
+
+object-hash@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/object-hash/-/object-hash-1.1.7.tgz#a8d83fdf5d4583a4e2e7ffc18e8915e08482ef52"
 
 once@^1.3.0:
   version "1.4.0"
@@ -1149,7 +1179,7 @@ registry-url@^3.0.3:
   dependencies:
     rc "^1.0.1"
 
-request@^2.81.0:
+request@2.81.0:
   version "2.81.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:

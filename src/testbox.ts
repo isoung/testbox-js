@@ -3,8 +3,8 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as request from 'request';
 
-import { CLI } from './../cli/cli';
-import { Scaffolder } from './../scaffolder/scaffolder';
+import { CLI } from './cli/cli';
+import { Scaffolder } from './scaffolder';
 
 const cachePath = path.join(__dirname + '/../../.cache');
 const cacheListPath = path.join(cachePath, '/list.json');
@@ -16,31 +16,31 @@ export class TestBox {
   constructor() {
     this.cli = new CLI();
     this.scaffolder = new Scaffolder();
-
-    console.log('\nTestBox Scaffold is a customizable test automation suite scaffolder.'.blue);
-    console.log('Based on selection options TestBox will scaffold an automation solution.'.blue);
-    console.log('\n');
   }
 
   public scaffold(update: boolean): Promise<any> {
-    if (this.checkForUpdate(update)) {
+    return new Promise((resolve, reject) => {
+      if (this.checkForUpdate(update)) {
         console.log('Grabbing the latest list of frameworks...'.blue);
 
-        return this.downloadFrameworks()
-        .then((repos) => {
-          const frameworks: any[] = repos.filter((elem) => {
-            return elem['name'].match(/([^\s]+)-([^\s]+)-base/) !== null;
+        this.downloadFrameworks()
+          .then((repos) => {
+            const frameworks: any[] = repos.filter((elem) => {
+              return elem['name'].match(/([^\s]+)-([^\s]+)-base/) !== null;
+            });
+
+            this.renewCache();
+            this.createList(frameworks);
+            resolve();
+          })
+          .catch((err) => {
+            reject(err);
           });
-
-          this.renewCache();
-          this.createList(frameworks);
-
-          return this.initScaffoldCLI();
-        });
-    }
-    else {
-      return this.initScaffoldCLI();
-    }
+      }
+      else {
+        resolve();
+      }
+    });
   }
 
   public initScaffoldCLI(): Promise<any> {
