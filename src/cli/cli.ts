@@ -1,21 +1,13 @@
 import * as inquirer from 'inquirer';
 
-import { eventEmit } from './eventBus';
 import { questions } from './questions/questions';
-
-export let projectName: string;
 
 export class CLI {
 
-  public ask(questions: inquirer.Questions, eventName: string): Promise<any> {
+  public ask(questions: inquirer.Questions): Promise<inquirer.Answers> {
     return new Promise((resolve, reject) => {
-      eventEmit(eventName);
       inquirer.prompt(questions)
         .then((answer) => {
-          if ('projectName' in answer) {
-            projectName = answer.projectName;
-          }
-
           resolve(answer);
         })
         .catch((err) => {
@@ -25,7 +17,7 @@ export class CLI {
   }
 
   public createQuestions(): any {
-    return questions.map((q) => () => this.ask(q, q.name));
+    return questions.map((q: any) => () => this.ask(q));
   };
 
   public executeQuestions(q: any): Promise<any> {

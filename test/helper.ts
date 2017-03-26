@@ -1,4 +1,4 @@
-import { events } from './../src/testbox/eventBus';
+import { events } from './../src/cli/eventBus';
 
 const stdin = require('mock-stdin').stdin();
 

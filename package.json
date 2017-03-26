@@ -10,6 +10,7 @@
   "scripts": {
     "build": "cd src && tsc",
     "scaffold": "ts-node --project src/tsconfig.json src/bin/testbox.ts --scaffold",
+    "scaffold:force": "ts-node --project src/tsconfig.json src/bin/testbox.ts --scaffold --u",
     "tslint": "tslint -c .tslint.json -t verbose './**/*.ts' -e './node_modules/**/*'",
     "test": "cd test && mocha --compilers ts:ts-node/register --reporter list ./**/*.ts"
   },
@@ -35,12 +36,17 @@
     "@types/fs-extra": "2.0.0",
     "@types/inquirer": "0.0.32",
     "@types/mocha": "2.2.40",
+    "@types/mock-require": "1.3.3",
+    "@types/nock": "8.2.1",
     "@types/node": "7.0.8",
+    "@types/request": "0.0.42",
     "@types/yargs": "6.6.0",
     "chai": "3.5.0",
     "core-js": "2.4.1",
     "mocha": "3.2.0",
+    "mock-require": "2.0.1",
     "mock-stdin": "0.3.1",
+    "nock": "9.0.9",
     "ts-node": "3.0.0",
     "tslint": "4.5.1",
     "typescript": "2.2.1"
@@ -49,6 +55,7 @@
     "colors": "1.1.2",
     "fs-extra": "2.1.2",
     "inquirer": "3.0.6",
+    "request": "2.81.0",
     "yargs": "7.0.2"
   }
 }
