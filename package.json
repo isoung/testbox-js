@@ -4,6 +4,9 @@
   "description": "An easier way to automate testing",
   "main": "./dist/index.js",
   "types": "./index.d.ts",
+  "directories": {
+    "dist": "./dist"
+  },
   "bin": {
     "testbox": "dist/bin/testbox.js"
   },
