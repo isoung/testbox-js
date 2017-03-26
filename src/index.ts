@@ -1,5 +1,7 @@
-import { CLI } from './cli';
+import { CLI } from './cli/cli';
+import { events } from './cli/eventBus';
 
 export {
-  CLI
+  CLI,
+  events
 };
