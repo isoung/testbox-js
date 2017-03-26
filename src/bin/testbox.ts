@@ -1,6 +1,6 @@
 import * as yargs from 'yargs';
 
-import { TestBox } from './../testbox/testbox';
+import { TestBox } from './../testbox';
 
 const args = yargs
   .usage('Usage: $0 option')
@@ -19,4 +19,5 @@ const testBox = new TestBox();
 
 if (args.scaffold) {
   args.forceUpdate ? testBox.scaffold(true) : testBox.scaffold(false);
+  testBox.initScaffoldCLI();
 }

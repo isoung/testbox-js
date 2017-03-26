@@ -1,7 +1,3 @@
-import { CLI } from './cli/cli';
-import { events } from './cli/eventBus';
+import { Scaffolder } from './scaffolder';
 
-export {
-  CLI,
-  events
-};
+export { Scaffolder };

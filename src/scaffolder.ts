@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
-import 'colors';
 import * as fs from 'fs-extra';
+import * as objectHash from 'object-hash';
 import * as request from 'request';
 
 export interface IScaffoldOptions {
@@ -14,21 +14,23 @@ export interface IScaffoldOptions {
 export class Scaffolder {
   private gitUrl: string = 'https://github.com/isoung';
 
-  public init(options: IScaffoldOptions) {
+  public init(options: IScaffoldOptions): Promise<boolean> {
     this.createProjectFolder(options.projectName, options.override);
     process.chdir(options.projectName);
 
     return new Promise((resolve, reject) => {
+      const tarball = `${objectHash(options)}.tgz`;
+
       request({
         url: this.generateUrl(options.programmingLanguage, options.framework),
         headers: {
           'User-Agent': 'testbox'
         }})
-        .pipe(fs.createWriteStream('ruby-cucumber-base.tgz'))
+        .pipe(fs.createWriteStream(tarball))
         .on('close', () => {
-          this.unpackTarball();
+          this.unpackTarball(tarball);
           this.buildOptions(this.generateOptionFlags(['testing', 'capybara', 'pokemon', 'masters'], ''));
-          resolve();
+          resolve(true);
         });
     });
   }
@@ -47,10 +49,9 @@ export class Scaffolder {
     return `${this.gitUrl}/${lang}-${framework}-base/tarball/master`;
   }
 
-  private unpackTarball(): void {
-    execSync('tar -xvf ruby-cucumber-base.tgz --strip 1 > /dev/null 2>&1', () => {
-      fs.removeSync('ruby-cucumber-base.tgz');
-    });
+  private unpackTarball(tarball: string): void {
+    execSync(`tar -xvf ${tarball} --strip 1 > /dev/null 2>&1`);
+    fs.removeSync(tarball);
   }
 
   private buildOptions(optionString: string): void {
