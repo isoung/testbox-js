@@ -4,6 +4,7 @@ import * as yargs from 'yargs';
 import { TestBox } from './../testbox';
 
 const args = yargs
+  .demandCommand(1)
   .usage('Usage: $0 option')
   .option('scaffold', {
     alias: 's',
