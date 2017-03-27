@@ -4,7 +4,6 @@ import * as yargs from 'yargs';
 import { TestBox } from './../testbox';
 
 const args = yargs
-  .demandCommand(1)
   .usage('Usage: $0 option')
   .option('scaffold', {
     alias: 's',
@@ -22,4 +21,8 @@ const testBox = new TestBox();
 if (args.scaffold) {
   args.forceUpdate ? testBox.scaffold(true) : testBox.scaffold(false);
   testBox.initScaffoldCLI();
+}
+else {
+  console.log('No option was given. You must specify one of the options [ --scaffold ]'.red);
+  process.exit(1);
 }
