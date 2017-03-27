@@ -1,4 +1,6 @@
+src
 test
+.gitignore
 .vscode
 .travis.yml
 .tslint.json
