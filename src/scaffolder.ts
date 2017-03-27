@@ -55,6 +55,7 @@ export class Scaffolder {
   }
 
   private buildOptions(optionString: string): void {
+    execSync('npm install'); // Install any local dependencies for build script
     execSync(`node build.js ${optionString} --clean`);
   }
 
