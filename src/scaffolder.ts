@@ -29,7 +29,7 @@ export class Scaffolder {
         .pipe(fs.createWriteStream(tarball))
         .on('close', () => {
           this.unpackTarball(tarball);
-          this.buildOptions(this.generateOptionFlags(['testing', 'capybara', 'pokemon', 'masters'], ''));
+          this.buildOptions(this.generateOptionFlags(options.additionalOptions, ''));
           resolve(true);
         });
     });
@@ -55,7 +55,7 @@ export class Scaffolder {
   }
 
   private buildOptions(optionString: string): void {
-    execSync(`node build.js ${optionString}`);
+    execSync(`node build.js ${optionString} --clean`);
   }
 
   private generateOptionFlags(options: string[], currentFlags: string): string {
