@@ -29,9 +29,9 @@ describe('Choice functions', () => {
       .replyContentLength()
       .get('/isoung/test-testbox-base/master/options.json')
       .reply(200, JSON.stringify({
-        options: [
-          'testOption'
-        ]
+        options: [{
+          name: 'testOption'
+        }]
       }));
   });
 
@@ -55,8 +55,8 @@ describe('Choice functions', () => {
       programmingLanguage: 'test',
       framework: 'testbox'
     }, 'test')
-      .then((options: string[]) => {
-        should().equal(options.indexOf('testOption') > -1, true);
+      .then((options) => {
+        should().equal(options[0].name === 'testOption', true);
       });
   });
 });
