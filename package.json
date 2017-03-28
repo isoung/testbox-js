@@ -1,6 +1,6 @@
 {
   "name": "testbox-js",
-  "version": "0.1.5",
+  "version": "1.1.0",
   "description": "An easier way to automate testing",
   "main": "./dist/index.js",
   "types": "./index.d.ts",
