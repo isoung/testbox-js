@@ -29,7 +29,7 @@ export const filterLanguageDuplicates = (event: string) => {
   });
 };
 
-export const queryForOptions = (answers: inquirer.Answers, event: string): Promise<IOptions> => {
+export const queryForOptions = (answers: inquirer.Answers, event: string): Promise<IOptions[]> => {
   const gitRepos = frameworks().filter((elem) => {
     return elem.name === `${answers.programmingLanguage}-${answers.framework}-base`;
   })[0];
