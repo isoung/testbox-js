@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/testbox-js/master/logos/testbox-logo.png" width="150" height="180" />
+<img src="https://raw.githubusercontent.com/isoung/testbox-js/master/logos/testbox-logo.png" width="150" height="180" />
 
 # testbox-js
 
